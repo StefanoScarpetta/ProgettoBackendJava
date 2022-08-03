@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Download implements  Runnable{ //Approfondire Runnable
+public class Download implements Runnable {
     String link;
     File out;
     public Download(String link, File out) {
