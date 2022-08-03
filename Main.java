@@ -1,10 +1,6 @@
 import url.Download;
 
 import java.io.File;
-import java.io.InputStream;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class Main {
 
