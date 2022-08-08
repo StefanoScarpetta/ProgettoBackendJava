@@ -1,6 +1,13 @@
+import Classi.DataInformation;
+import Classi.Information;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import url.Download;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.InputStreamReader;
 
 public class Main {
 
@@ -10,6 +17,12 @@ public class Main {
         File out = new File("C:\\Users\\stefa\\Documents\\GitHub\\ProgettoBackendJava\\url\\Scaricato.json");
         new Thread(new Download(link, out)).start(); //da approfondire Thread() e .start();
 
-    }
+        DataInformation.getDataInformation();
 
+        //DataInformation.getDataInformation(json);
+        //Information information = new Information();
+        //System.out.println(information);
+
+
+    }
 }
