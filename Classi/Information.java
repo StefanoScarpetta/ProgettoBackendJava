@@ -4,87 +4,32 @@ import java.util.ArrayList;
 
 public class Information {
     public Value value;
-    public ArrayList<String> id;
     public Dimension dimension;
 
-    public class TIMEPERIOD{
-        public String label;
-        public Category category;
+    public class TIMEPERIOD {
+        public CategoryTime categoryTime;
     }
 
-    public class UNIT{
-        public String label;
-        public Category category;
+    public class GEO {
+        public CategoryGeo categoryGeo;
     }
 
-    public class OBJECTIV{
-        public String label;
-        public Category category;
+    public class CategoryGeo {
+        public IndexGeo indexGeo;
+        public LabelGeo labelGeo;
     }
 
-    public class FREQ{
-        public String label;
-        public Category category;
+    public class CategoryTime {
+        public IndexTime indexTime;
+        public LabelTime labelTime;
     }
 
-    public class GEO{
-        public String label;
-        public Category category;
+    public class Dimension {
+        public GEO GEO;
+        public TIMEPERIOD TIMEPERIOD;
     }
 
-    public class Category{
-        public Index index;
-        public Label label;
-    }
-
-    public class Datastructure{
-        public String id;
-        public String agencyId;
-        public String version;
-    }
-
-    public class Dimension{
-        public FREQ fREQ;
-        public GEO gEO;
-        public UNIT uNIT;
-        public OBJECTIV oBJECTIV;
-        public TIMEPERIOD tIME_PERIOD;
-    }
-
-    public class Index{
-        public int a;
-        public int eU28;
-        public int bE;
-        public int bG;
-        public int cZ;
-        public int dK;
-        public int dE;
-        public int eE;
-        public int iE;
-        public int eL;
-        public int eS;
-        public int fR;
-        public int hR;
-        public int iT;
-        public int cY;
-        public int lV;
-        public int lT;
-        public int lU;
-        public int hU;
-        public int mT;
-        public int nL;
-        public int aT;
-        public int pL;
-        public int pT;
-        public int rO;
-        public int sI;
-        public int sK;
-        public int fI;
-        public int sE;
-        public int uK;
-        public int mEUR_KP_PRE;
-        public int pC_GDP;
-        public int tOTAL;
+    public class IndexTime {
         public int _2000;
         public int _2001;
         public int _2002;
@@ -105,40 +50,39 @@ public class Information {
         public int _2017;
     }
 
-    public class Label{
-        public String a;
-        public String eU28;
-        public String bE;
-        public String bG;
-        public String cZ;
-        public String dK;
-        public String dE;
-        public String eE;
-        public String iE;
-        public String eL;
-        public String eS;
-        public String fR;
-        public String hR;
-        public String iT;
-        public String cY;
-        public String lV;
-        public String lT;
-        public String lU;
-        public String hU;
-        public String mT;
-        public String nL;
-        public String aT;
-        public String pL;
-        public String pT;
-        public String rO;
-        public String sI;
-        public String sK;
-        public String fI;
-        public String sE;
-        public String uK;
-        public String mEUR_KP_PRE;
-        public String pC_GDP;
-        public String tOTAL;
+    public class IndexGeo {
+        public int EU28;
+        public int BE;
+        public int BG;
+        public int CZ;
+        public int DK;
+        public int DE;
+        public int EE;
+        public int IE;
+        public int EL;
+        public int ES;
+        public int FR;
+        public int HR;
+        public int IT;
+        public int CY;
+        public int LV;
+        public int LT;
+        public int LU;
+        public int HU;
+        public int MT;
+        public int NL;
+        public int AT;
+        public int PL;
+        public int PT;
+        public int RO;
+        public int SI;
+        public int SK;
+        public int FI;
+        public int SE;
+        public int UK;
+    }
+
+    public class LabelTime {
         public String _2000;
         public String _2001;
         public String _2002;
@@ -159,7 +103,39 @@ public class Information {
         public String _2017;
     }
 
-    public class Value{
+    public class LabelGeo {
+        public String EU28;;
+        public String BE;
+        public String BG;
+        public String CZ;
+        public String DK;
+        public String DE;
+        public String EE;
+        public String IE;
+        public String EL;
+        public String ES;
+        public String FR;
+        public String HR;
+        public String IT;
+        public String CY;
+        public String LV;
+        public String LT;
+        public String LU;
+        public String HU;
+        public String MT;
+        public String NL;
+        public String AT;
+        public String PL;
+        public String PT;
+        public String RO;
+        public String SI;
+        public String SK;
+        public String FI;
+        public String SE;
+        public String UK;
+    }
+
+    public class Value {
         public double _720;
         public double _721;
         public double _722;
@@ -1204,14 +1180,5 @@ public class Information {
         public double _1041;
         public double _1042;
         public double _1043;
-    }
-
-    @Override
-    public String toString() {
-        return "Information{" +
-                "value=" + value +
-                ", id=" + id +
-                ", dimension=" + dimension +
-                '}';
     }
 }
