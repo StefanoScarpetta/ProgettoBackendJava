@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jackson-core-2.9.9-javadoc">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Downloads/jackson-core-2.9.9-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

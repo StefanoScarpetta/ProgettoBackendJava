@@ -1,11 +1,9 @@
 import Classi.DataInformation;
 import Classi.Information;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import url.Download;
 
 import java.io.*;
+import java.text.ParseException;
 
 public class Main {
 
@@ -16,19 +14,22 @@ public class Main {
         File out = new File(directory);
         new Thread(new Download(link, out)).start(); //da approfondire Thread() e .start();
 
+        Information information = new Information();
         new java.util.Timer().schedule(
                 new java.util.TimerTask() {
                     @Override
                     public void run() {
                         try {
-                            DataInformation.getDataInformation(directory);
+                            System.out.println(DataInformation.getDataInformation(directory).value._6);
+                            System.out.println(information.value._6);
                         } catch (IOException e) {
                             throw new RuntimeException(e);
-                        } catch (ParseException e) {
+                        } catch (org.json.simple.parser.ParseException e) {
                             throw new RuntimeException(e);
                         }
                     }
                 }, 2500
         );
+
     }
 }

@@ -5,7 +5,6 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -21,7 +20,6 @@ public class Utils {
         reader.close();
         JSONParser parser = new JSONParser();
         JSONObject json = (JSONObject) parser.parse(result.toString());
-        System.out.println(json);
         return json;
     }
 }

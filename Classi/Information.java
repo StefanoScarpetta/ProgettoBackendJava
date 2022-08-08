@@ -1,5 +1,7 @@
 package Classi;
 
+import org.json.simple.JSONObject;
+
 import java.util.ArrayList;
 
 public class Information {
@@ -1180,5 +1182,13 @@ public class Information {
         public double _1041;
         public double _1042;
         public double _1043;
+    }
+
+    @Override
+    public String toString() {
+        return "Information{" +
+                "value=" + value +
+                ", dimension=" + dimension +
+                '}';
     }
 }
