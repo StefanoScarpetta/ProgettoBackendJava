@@ -1,10 +1,10 @@
-package url;
+package Risorse;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Download implements Runnable {
+public class Download {
     String link;
     File out;
     public Download(String link, File out) {
@@ -12,7 +12,6 @@ public class Download implements Runnable {
         this.out = out;
     }
 
-    @Override
     public void run() {
         try{
             URL url = new URL(link);

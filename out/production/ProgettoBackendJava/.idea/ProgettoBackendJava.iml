@@ -14,5 +14,7 @@
     <orderEntry type="library" name="jackson-core-2.9.9-javadoc" level="project" />
     <orderEntry type="library" name="google.code.gson" level="application" />
     <orderEntry type="library" name="squareup.retrofit2.converter.gson" level="application" />
+    <orderEntry type="library" name="fasterxml.jackson.core" level="application" />
+    <orderEntry type="library" name="fasterxml.jackson.core.databind" level="application" />
   </component>
 </module>
