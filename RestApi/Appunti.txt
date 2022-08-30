@@ -1,0 +1,4 @@
+Per rendere db.json un REST API scrivere sul cmd:
+"json-server --watch C:\Users\stefa\Documents\GitHub\ProgettoBackendJava\RestApi\db.json"
+
+Per interrompere l'hosting selezionare il cmd e premere Ctrl + c

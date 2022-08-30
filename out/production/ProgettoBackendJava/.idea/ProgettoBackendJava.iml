@@ -16,5 +16,6 @@
     <orderEntry type="library" name="squareup.retrofit2.converter.gson" level="application" />
     <orderEntry type="library" name="fasterxml.jackson.core" level="application" />
     <orderEntry type="library" name="fasterxml.jackson.core.databind" level="application" />
+    <orderEntry type="library" name="guicedee.services.commons.collections4" level="application" />
   </component>
 </module>
