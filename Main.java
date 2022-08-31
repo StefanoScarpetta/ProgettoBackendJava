@@ -1,19 +1,4 @@
-import Classi.Dimension;
-import Classi.Id;
-import Classi.Proprietà.Descrizione.Categorie.Index;
-import Classi.Proprietà.Descrizione.Categorie.Label;
-import Classi.Proprietà.Descrizione.Category;
-import Classi.Proprietà.Descrizione.Title;
-import Classi.Value;
-import Convertitore.Converter;
-import Convertitore.GeneralInformation;
-import Convertitore.Reader;
 import RestApi.ToRestApi;
-import Risorse.Download;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
-import java.io.File;
 
 public class Main {
 

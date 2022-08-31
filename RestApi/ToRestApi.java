@@ -1,11 +1,6 @@
 package RestApi;
 
 import Classi.*;
-import Classi.Class;
-import Classi.Proprietà.Descrizione.Categorie.Index;
-import Classi.Proprietà.Descrizione.Categorie.Label;
-import Classi.Proprietà.Descrizione.Category;
-import Classi.Proprietà.Descrizione.Title;
 import Convertitore.Converter;
 import Convertitore.GeneralInformation;
 import Convertitore.Reader;
@@ -32,33 +27,54 @@ public class ToRestApi {
         Converter converter = new Converter();
 
         GeneralInformation generalInformation = new GeneralInformation(converter.ConverterObj(js), js);
-        Value value = new Value(converter.ConverterObj((JSONObject) js.get("value")));
-        Id id = new Id(converter.ConverterArray((JSONArray) js.get("id")));
-        Dimension dimension = new Dimension(converter.ConverterObj((JSONObject) js.get("dimension")));
-        Version version = new Version((String) js.get("version"));
-        Class classe = new Class((String) js.get("class"));
-        Classi.Label label = new Classi.Label((String) js.get("label"));
-        Source source = new Source((String) js.get("source"));
-        Updated updated = new Updated((String) js.get("updated"));
-        Extension extension = new Extension(converter.ConverterObj((JSONObject) js.get("extension")));
+        Hashmap value = new Hashmap(converter.ConverterObj((JSONObject) js.get("value")));
+        JsonArray id = new JsonArray(converter.ConverterArray((JSONArray) js.get("id")));
+        Hashmap dimension = new Hashmap(converter.ConverterObj((JSONObject) js.get("dimension")));
+        Stringa version = new Stringa((String) js.get("version"));
+        Stringa classe = new Stringa((String) js.get("class"));
+        Stringa label = new Stringa((String) js.get("label"));
+        Stringa source = new Stringa((String) js.get("source"));
+        Stringa updated = new Stringa((String) js.get("updated"));
+        Hashmap extension = new Hashmap(converter.ConverterObj((JSONObject) js.get("extension")));
 
-        JSONObject FREQ = (JSONObject) ((JSONObject) js.get("dimension")).get(id.getId().get(0));
-        JSONObject GEO = (JSONObject) ((JSONObject) js.get("dimension")).get(id.getId().get(1));
-        JSONObject UNIT = (JSONObject) ((JSONObject) js.get("dimension")).get(id.getId().get(2));
-        JSONObject OBJECTIV = (JSONObject) ((JSONObject) js.get("dimension")).get(id.getId().get(3));
-        JSONObject TIME_PERIOD = (JSONObject) ((JSONObject) js.get("dimension")).get(id.getId().get(4));
+        Stringa langExt = new Stringa((String) ((JSONObject) js.get("extension")).get("lang"));
+        Stringa idExt = new Stringa((String) ((JSONObject) js.get("extension")).get("id"));
+        Stringa agencyIdExt = new Stringa((String) ((JSONObject) js.get("extension")).get("agencyId"));
+        Stringa versionExt = new Stringa((String) ((JSONObject) js.get("extension")).get("version"));
+        Hashmap datastructureExt = new Hashmap(converter.ConverterObj((JSONObject) ((JSONObject) js.get("extension")).get("datastructure")));
+        JsonArray annotationExt = new JsonArray(converter.ConverterArray((JSONArray) ((JSONObject) js.get("extension")).get("annotation")));
 
-        Title titleFREQ = new Title((String) FREQ.get("label"));
-        Title titleGEO = new Title((String) GEO.get("label"));
-        Title titleUNIT = new Title((String) UNIT.get("label"));
-        Title titleOBJECTIV = new Title((String) OBJECTIV.get("label"));
-        Title titleTIME_PERIOD = new Title((String) TIME_PERIOD.get("label"));
+        JSONObject DATASTRUCTURE = (JSONObject) ((JSONObject) js.get("extension")).get("datastructure");
+        Stringa idData = new Stringa((String) DATASTRUCTURE.get("id"));
+        Stringa agencyIdData = new Stringa((String) DATASTRUCTURE.get("agencyId"));
+        Stringa versionData = new Stringa((String) DATASTRUCTURE.get("version"));
 
-        Category categoryFREQ = new Category(converter.ConverterObj((JSONObject) FREQ.get("category")));
-        Category categoryGEO = new Category(converter.ConverterObj((JSONObject) GEO.get("category")));
-        Category categoryUNIT = new Category(converter.ConverterObj((JSONObject) UNIT.get("category")));
-        Category categoryOBJECTIV = new Category(converter.ConverterObj((JSONObject) OBJECTIV.get("category")));
-        Category categoryTIME_PERIOD = new Category(converter.ConverterObj((JSONObject) TIME_PERIOD.get("category")));
+        Hashmap ANNOTATION0 = new Hashmap((HashMap) annotationExt.getJsonarray().get(0));
+        Hashmap ANNOTATION1 = new Hashmap((HashMap) annotationExt.getJsonarray().get(1));
+        Hashmap ANNOTATION2 = new Hashmap((HashMap) annotationExt.getJsonarray().get(2));
+        Hashmap ANNOTATION3 = new Hashmap((HashMap) annotationExt.getJsonarray().get(3));
+        Hashmap ANNOTATION4 = new Hashmap((HashMap) annotationExt.getJsonarray().get(4));
+        Hashmap ANNOTATION5 = new Hashmap((HashMap) annotationExt.getJsonarray().get(5));
+        Hashmap ANNOTATION6 = new Hashmap((HashMap) annotationExt.getJsonarray().get(6));
+        Hashmap ANNOTATION7 = new Hashmap((HashMap) annotationExt.getJsonarray().get(7));
+
+        JSONObject FREQ = (JSONObject) ((JSONObject) js.get("dimension")).get(id.getJsonarray().get(0));
+        JSONObject GEO = (JSONObject) ((JSONObject) js.get("dimension")).get(id.getJsonarray().get(1));
+        JSONObject UNIT = (JSONObject) ((JSONObject) js.get("dimension")).get(id.getJsonarray().get(2));
+        JSONObject OBJECTIV = (JSONObject) ((JSONObject) js.get("dimension")).get(id.getJsonarray().get(3));
+        JSONObject TIME_PERIOD = (JSONObject) ((JSONObject) js.get("dimension")).get(id.getJsonarray().get(4));
+
+        Stringa titleFREQ = new Stringa((String) FREQ.get("label"));
+        Stringa titleGEO = new Stringa((String) GEO.get("label"));
+        Stringa titleUNIT = new Stringa((String) UNIT.get("label"));
+        Stringa titleOBJECTIV = new Stringa((String) OBJECTIV.get("label"));
+        Stringa titleTIME_PERIOD = new Stringa((String) TIME_PERIOD.get("label"));
+
+        Hashmap categoryFREQ = new Hashmap(converter.ConverterObj((JSONObject) FREQ.get("category")));
+        Hashmap categoryGEO = new Hashmap(converter.ConverterObj((JSONObject) GEO.get("category")));
+        Hashmap categoryUNIT = new Hashmap(converter.ConverterObj((JSONObject) UNIT.get("category")));
+        Hashmap categoryOBJECTIV = new Hashmap(converter.ConverterObj((JSONObject) OBJECTIV.get("category")));
+        Hashmap categoryTIME_PERIOD = new Hashmap(converter.ConverterObj((JSONObject) TIME_PERIOD.get("category")));
 
         JSONObject IndexELableFREQ = (JSONObject) FREQ.get("category");
         JSONObject IndexELableGEO = (JSONObject) GEO.get("category");
@@ -66,36 +82,36 @@ public class ToRestApi {
         JSONObject IndexELableOBJECTIV = (JSONObject) OBJECTIV.get("category");
         JSONObject IndexELableTIME_PERIOD = (JSONObject) TIME_PERIOD.get("category");
 
-        Label labelFREQ = new Label(converter.ConverterObj((JSONObject) IndexELableFREQ.get("label")));
-        Index indexFREQ = new Index(converter.ConverterObj((JSONObject) IndexELableFREQ.get("index")));
-        Label labelGEO = new Label(converter.ConverterObj((JSONObject) IndexELableGEO.get("label")));
-        Index indexGEO = new Index(converter.ConverterObj((JSONObject) IndexELableGEO.get("index")));
-        Label labelUNIT = new Label(converter.ConverterObj((JSONObject) IndexELableUNIT.get("label")));
-        Index indexUNIT = new Index(converter.ConverterObj((JSONObject) IndexELableUNIT.get("index")));
-        Label labelOBJECTIV = new Label(converter.ConverterObj((JSONObject) IndexELableOBJECTIV.get("label")));
-        Index indexOBJECTIV = new Index(converter.ConverterObj((JSONObject) IndexELableOBJECTIV.get("index")));
-        Label labelTIME_PERIOD = new Label(converter.ConverterObj((JSONObject) IndexELableTIME_PERIOD.get("label")));
-        Index indexTIME_PERIOD = new Index(converter.ConverterObj((JSONObject) IndexELableTIME_PERIOD.get("index")));
+        Hashmap labelFREQ = new Hashmap(converter.ConverterObj((JSONObject) IndexELableFREQ.get("label")));
+        Hashmap indexFREQ = new Hashmap(converter.ConverterObj((JSONObject) IndexELableFREQ.get("index")));
+        Hashmap labelGEO = new Hashmap(converter.ConverterObj((JSONObject) IndexELableGEO.get("label")));
+        Hashmap indexGEO = new Hashmap(converter.ConverterObj((JSONObject) IndexELableGEO.get("index")));
+        Hashmap labelUNIT = new Hashmap(converter.ConverterObj((JSONObject) IndexELableUNIT.get("label")));
+        Hashmap indexUNIT = new Hashmap(converter.ConverterObj((JSONObject) IndexELableUNIT.get("index")));
+        Hashmap labelOBJECTIV = new Hashmap(converter.ConverterObj((JSONObject) IndexELableOBJECTIV.get("label")));
+        Hashmap indexOBJECTIV = new Hashmap(converter.ConverterObj((JSONObject) IndexELableOBJECTIV.get("index")));
+        Hashmap labelTIME_PERIOD = new Hashmap(converter.ConverterObj((JSONObject) IndexELableTIME_PERIOD.get("label")));
+        Hashmap indexTIME_PERIOD = new Hashmap(converter.ConverterObj((JSONObject) IndexELableTIME_PERIOD.get("index")));
 
         Map<Integer, String> mappaInvertita = new HashMap<Integer, String>();
-        Iterator iterator = indexGEO.getIndex().entrySet().iterator();
+        Iterator iterator = indexGEO.getHashmap().entrySet().iterator();
         while(iterator.hasNext()) {
             Map.Entry<String, Long> appoggio = (Map.Entry<String, Long>) iterator.next();
             mappaInvertita.put(Math.toIntExact(appoggio.getValue()), appoggio.getKey());
         }
 
         JSONArray dati = new JSONArray();
-        for(int i=0; i<indexGEO.getIndex().size(); i++) {
+        for(int i=0; i<indexGEO.getHashmap().size(); i++) {
             JSONObject nazione = new JSONObject();
             nazione.put("id", i);
-            nazione.put("nazione", labelGEO.getLabel().get(mappaInvertita.get(i)));
+            nazione.put("nazione", labelGEO.getHashmap().get(mappaInvertita.get(i)));
             nazione.put("sigla", mappaInvertita.get(i));
-            for(int a=0; a<indexTIME_PERIOD.getIndex().size(); a++) {
+            for(int a=0; a<indexTIME_PERIOD.getHashmap().size(); a++) {
                 int b= i*36;
                 if(a<10) {
-                    nazione.put("200"+a, value.getValue().get(String.valueOf(b+a)));
+                    nazione.put("200"+a, value.getHashmap().get(String.valueOf(b+a)));
                 } else {
-                    nazione.put("20"+a, value.getValue().get(String.valueOf(b+a)));
+                    nazione.put("20"+a, value.getHashmap().get(String.valueOf(b+a)));
                 }
             }
             dati.add(nazione);
