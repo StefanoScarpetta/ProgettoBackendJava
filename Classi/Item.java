@@ -2,21 +2,23 @@ package Classi;
 
 import org.json.simple.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Item {
     private Category category;
     private String label;
-    private HashMap item;
-    private String nome;
+    private String shortName;
 
-    public Item(HashMap item, String nome) {
-        this.nome = nome;
-        this.item = item;
-        JSONObject appoggio = (JSONObject) item.get(nome);
-        this.category = new Category((JSONObject) appoggio.get("category"));
-        this.label = (String) appoggio.get("label");
+    public Item(HashMap map, String shortName) {
+        this.shortName = shortName;
+        this.category = new Category((JSONObject) map.get("category"));
+        this.label = (String) map.get("label");
+    }
+
+    public Item(Category category, String label, String shortName) {
+        this.category = category;
+        this.label = label;
+        this.shortName = shortName;
     }
 
     public Category getCategory() {
@@ -33,5 +35,22 @@ public class Item {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "category=" + category +
+                ", label='" + label + '\'' +
+                ", shortName='" + shortName + '\'' +
+                '}';
     }
 }

@@ -1,46 +1,33 @@
 package Classi;
 
-import org.json.simple.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Dimension {
-    private HashMap dimension;
-    private Item item;
-    private ArrayList id;
-    private HashMap mappa;
+    private ArrayList<Item> items;
+    private ArrayList ids;
 
-    public Dimension(HashMap dimension, ArrayList id) {
-        this.id = id;
-        this.dimension = dimension;
-        HashMap appoggio = new HashMap<>();
-        for(int i = 0; i<id.size(); i++) {
-            appoggio.put(id.get(i), dimension.get(id.get(i)));
+    public Dimension(HashMap dimension, ArrayList ids) {
+        this.ids = ids;
+        ArrayList<Item> temp = new ArrayList<>();
+        for(int i=0; i<ids.size(); i++){
+            temp.add(new Item((HashMap) dimension.get(ids.get(i)), (String) ids.get(i)));
         }
-        this.mappa = appoggio;
+        this.items = temp;
     }
 
-    public Item getItem(String nome) {
-        return new Item(mappa, nome);
+    public ArrayList<Item> getItems() {
+        return items;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
-    public HashMap getDimension() {
-        return dimension;
-    }
-
-    public void setDimension(HashMap dimension) {
-        this.dimension = dimension;
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
     }
 
     @Override
     public String toString() {
         return "Dimension{" +
-                "dimension=" + dimension +
+                "item=" + items +
                 '}';
     }
 }

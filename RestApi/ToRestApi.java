@@ -23,25 +23,17 @@ public class ToRestApi {
     public void run() throws IOException, ParseException {
         Reader reader = new Reader(directory);
         JSONObject js = reader.getJsonObject();
-        Converter converter = new Converter();
 
         GeneralInformation generalInformation = new GeneralInformation(js);
 
-        Map<Integer, String> mappaInvertita = new HashMap<Integer, String>();
-        Iterator iterator = (generalInformation.getDimension().getItem("GEO").getCategory().getIndex()).entrySet().iterator();
-        while(iterator.hasNext()) {
-            Map.Entry<String, Long> appoggio = (Map.Entry<String, Long>) iterator.next();
-            mappaInvertita.put(Math.toIntExact(appoggio.getValue()), appoggio.getKey());
-        }
-
         JSONArray dati = new JSONArray();
-        for(int i=0; i<(generalInformation.getDimension().getItem("GEO").getCategory().getIndex()).size(); i++) {
+        for(int i=0; i<generalInformation.getDimension().getItems().get(1).getCategory().getLista().size(); i++) {
             JSONObject nazione = new JSONObject();
-            nazione.put("id", i);
-            nazione.put("nazione", (generalInformation.getDimension().getItem("GEO").getCategory().getLabel()).get(mappaInvertita.get(i)));
-            nazione.put("sigla", mappaInvertita.get(i));
-            for(int a=0; a<(generalInformation.getDimension().getItem("TIME_PERIOD").getCategory().getIndex()).size(); a++) {
-                int b= i*36;
+            nazione.put("id", generalInformation.getDimension().getItems().get(1).getCategory().getLista().get(i).getIndex());
+            nazione.put("nazione", generalInformation.getDimension().getItems().get(1).getCategory().getLista().get(i).getLabel());
+            nazione.put("sigla", generalInformation.getDimension().getItems().get(1).getCategory().getLista().get(i).getKey());
+            for(int a=0; a<(generalInformation.getDimension().getItems().get(4).getCategory().getLista()).size(); a++) {
+                int b= (int) (((long) generalInformation.getDimension().getItems().get(1).getCategory().getLista().get(i).getIndex())*36);
                 if(a<10) {
                     nazione.put("200"+a, generalInformation.getValue().get(String.valueOf(b+a)));
                 } else {
